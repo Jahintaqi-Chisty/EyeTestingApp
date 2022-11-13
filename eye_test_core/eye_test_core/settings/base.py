@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # CORE SETTINGS
 # ==============================================================================
 
-SECRET_KEY = config("SECRET_KEY", default="django-insecure$simple.settings.local")
+SECRET_KEY = config("SECRET_KEY", default="django-insecure$eye_test_core.settings.local")
 
 DEBUG = config("DEBUG", default=True, cast=bool)
 
@@ -27,11 +27,11 @@ INSTALLED_APPS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-ROOT_URLCONF = "simple.urls"
+ROOT_URLCONF = "eye_test_core.urls"
 
 INTERNAL_IPS = ["127.0.0.1"]
 
-WSGI_APPLICATION = "simple.wsgi.application"
+WSGI_APPLICATION = "eye_test_core.wsgi.application"
 
 
 # ==============================================================================
@@ -75,10 +75,10 @@ TEMPLATES = [
 # ==============================================================================
 
 DATABASES = {
-    "default": dj_database_url.config(
-        default=config("DATABASE_URL", default="postgres://simple:simple@localhost:5432/simple"),
-        conn_max_age=600,
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'eye_test_db.sqlite3',
+    }
 }
 
 
